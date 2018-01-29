@@ -1,0 +1,140 @@
+/* thanks to spriters-resource.com for all images. */
+
+.box{
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+html, body{
+    background-color: black;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 16px;
+    background-image: url("../images/menu_BG.png");
+    color: white;
+}
+
+button {
+    background-color: black;
+
+}
+
+.character-select{
+    height: 100px;
+    width: 100px;
+}
+
+#megaMan{
+    background: url("../images/megaMan.png") no-repeat left top;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    display: block;
+}
+
+#protoMan{
+    background: url("../images/protoMan.png") no-repeat left top;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    display: block;
+}
+
+#gutsMan{
+    background: url("../images/gutsMan.png") no-repeat left top;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    display: block;
+}
+
+#quickMan{
+    background: url("../images/quickMan.png") no-repeat left top;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    display: block;
+}
+
+#attackButton{
+    background-color: #444444;
+    min-width: 10%;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+}
+
+.overlay {
+    display:none;   
+    width:100%;
+    height:100%;
+    background-color: gray;
+    opacity: .8;
+}
+
+
+#mute {
+    background-color: #444444;
+    min-width: 10%;
+    text-align: center;
+    color: white;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+/* IN PROGRESS FOR MOBILE SUPPORT
+#keyboard {
+    background-color: #444444;
+    min-width: 10%;
+    min-height: 10%;
+    text-align: center;
+    color: white;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+} */
+
+#vertCenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.buffer{
+    margin-bottom: 40px;
+}
+
+.charImage{
+    width:200px;
+    height:200px;
+}
+
+#instruction-text{
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+#status{
+    background-color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* #answer{
+    font-size: 32px;
+    letter-spacing: 32px;
+    margin-bottom: 10px;
+} */
+
+/* #guessedLetters{
+    letter-spacing: 15px;
+    overflow-wrap: break-word;
+} */
+
+#audioControls{
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}

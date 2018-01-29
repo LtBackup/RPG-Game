@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head>
+    <Title>Mega Man RPG Battle</Title>
+    <link rel="shortcut icon" href="assets/images/megaman.png" type="image/x-icon">
+    <link rel="icon" href="assets/images/megaman.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<Body>
+    <div class="container" id="vertCenter">
+        <div class="row">
+            <div class="col-xs-12 text-center" id="instruction-text">
+                Choose your Hero!
+            </div>
+        </div>
+        <div class="row buffer">
+            <div class="col-xs-6 col-sm-3 text-center buffer">
+                <button class="character-select" id="megaMan" value="0">
+                    <!-- <img class="charImg" src="assets/images/megaman.png" alt="Mega Man" /> -->
+                </button>
+                <div class="charName">Mega Man</div>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center buffer">
+                <button class="character-select" id="protoMan" value="1">
+                </button>
+                <div class="charName">Proto Man</div>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center buffer">
+                <button class="character-select" id="gutsMan" value="2">
+                    <!-- <img class="charImg" src="assets/images/gutsman.png" alt="Guts Man" /> -->
+                </button>
+                <div class="charName">Guts Man</div>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center buffer">
+                <button class="character-select" id="quickMan" value="3">
+                    <!-- <img class="charImg" src="assets/images/quickman.png" alt="Quick Man" /> -->
+                </button>
+                <div class="charName">Quick Man</div>
+            </div>
+        </div>
+        <div class="row buffer">
+            <div class="col-xs-3 col-xs-offset-3 text-center" id="heroArena">
+                <img class="charImg" src="assets/images/charBorder.png" alt="Hero Arena" />
+            </div>
+            <div class="col-xs-3 text-center" id="opponentArena">
+                <img class="charImg" src="assets/images/charBorder.png" alt="Opponent Arena" />
+            </div>
+        </div>
+        <div class="row buffer">
+            <div class="col-xs-12 text-center">
+                <button id="attackButton">Attack</button>
+            </div>
+        </div>
+        <div class="row buffer">
+            <div class="col-xs-12 text-center" id="status">
+                Battle Status Here
+            </div>
+        </div>
+    </div>
+    <button id="mute">UNMUTE</button>
+</Body>
+
+<script src="assets/javascript/game.js"></script>
+
+</html>
