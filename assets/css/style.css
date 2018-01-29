@@ -24,26 +24,40 @@ button {
 }
 
 #heroArena{
-    height: 112px;
-    width: 112px;
+    height: 136px;
+    width: 136px;
     background-color: black;
     margin: 0 auto;
 }
 
 #opponentArena{
-    height: 112px;
-    width: 112px;
+    height: 136px;
+    width: 136px;
     background-color: black;
     margin: 0 auto;
 }
 
 #heroBattler{
- position: relative;
- z-index: 1;
+    /* background: url("../images/megaMan.png") no-repeat center center; */
+    height: 100px;
+    width: 100px;
+    margin: 11px 0 0 16px;
+    padding: 0;
+    background-size: 100%;
+    position: absolute;
+    top: 6px;
+    z-index: 1;
 }
 
 #opponentBattler{
-    position: relative;
+    /* background: url("../images/megaMan.png") no-repeat center center; */
+    height: 100px;
+    width: 100px;
+    margin: 11px 0 0 16px;
+    padding: 0;
+    background-size: 100%;
+    position: absolute;
+    top: 6px;
     z-index: 1;
 }
 
@@ -117,6 +131,15 @@ button {
     filter: grayscale(1); /* W3C */
 }
 
+.flip{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
 .hidden {
     display: none;
 }
@@ -150,8 +173,8 @@ button {
 
 .charBorder{
     background: url("../images/charBorder.png") no-repeat left top;
-    height: 112px;
-    width: 112px;
+    height: 136px;
+    width: 136px;
     margin: 0;
     padding: 0;
     background-size: 100%;
@@ -164,10 +187,11 @@ button {
     margin-bottom: 50px;
 }
 
-#battleText{
+#battleText1, battleText2{
     background-color: black;
     font-size: 24px;
     margin-bottom: 20px;
+    height: 50px
 }
 
 /* #answer{
