@@ -15,7 +15,7 @@
     <div class="container" id="vertCenter">
         <div class="row">
             <div class="col-xs-12 text-center" id="instruction-text">
-                Choose your Hero!
+                Choose your Hero
             </div>
         </div>
         <div class="row buffer">
@@ -46,27 +46,32 @@
         </div>
         <div class="row buffer">
             <div class="col-xs-3 col-xs-offset-3 text-center">
-                <div id="heroArena"></div>
-                <img class="charImg" src="assets/images/charBorder.png" alt="Hero Arena" />
+                <div id="heroArena">
+                    <div class="charBorder"></div>
+                    <!-- <img src="assets/images/charBorder.png" alt="Hero Arena" /> -->
+                    <div id="heroBattler"></div>
+                </div>
             </div>
             <div class="col-xs-3 text-center">
                 <div id="opponentArena">
-                    <img class="charImg" src="assets/images/charBorder.png" alt="Opponent Arena" />
+                    <div class="charBorder"></div>
+                    <!-- <img src="assets/images/charBorder.png" alt="Opponent Arena" /> -->
+                    <div id="opponentBattler"></div>
                 </div>
             </div>
         </div>
         <div class="row buffer">
             <div class="col-xs-12 text-center">
-                <button id="attackButton">Attack</button>
+                <button class="invisible" id="attackButton">Attack</button>
             </div>
         </div>
         <div class="row buffer">
-            <div class="col-xs-12 text-center" id="status">
-                Battle Status Here
+            <div class="col-xs-12 text-center" id="battleText">
+                Awaiting battle
             </div>
         </div>
     </div>
-    <button id="mute">UNMUTE</button>
+    <!-- <button id="mute">UNMUTE</button> -->
 </Body>
 
 <script src="assets/javascript/game.js"></script>

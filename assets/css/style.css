@@ -1,10 +1,10 @@
 /* thanks to spriters-resource.com for all images. */
 
-.box{
+/* .box{
     border-style: solid;
     border-width: 2px;
     border-color: black;
-}
+} */
 
 html, body{
     background-color: black;
@@ -21,6 +21,30 @@ button {
 .character-select{
     height: 100px;
     width: 100px;
+}
+
+#heroArena{
+    height: 112px;
+    width: 112px;
+    background-color: black;
+    margin: 0 auto;
+}
+
+#opponentArena{
+    height: 112px;
+    width: 112px;
+    background-color: black;
+    margin: 0 auto;
+}
+
+#heroBattler{
+ position: relative;
+ z-index: 1;
+}
+
+#opponentBattler{
+    position: relative;
+    z-index: 1;
 }
 
 #megaMan{
@@ -112,17 +136,6 @@ button {
     left: 20px;
 }
 
-/* IN PROGRESS FOR MOBILE SUPPORT
-#keyboard {
-    background-color: #444444;
-    min-width: 10%;
-    min-height: 10%;
-    text-align: center;
-    color: white;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-} */
 
 #vertCenter{
     position: absolute;
@@ -135,9 +148,15 @@ button {
     margin-bottom: 40px;
 }
 
-.charImage{
-    width:200px;
-    height:200px;
+.charBorder{
+    background: url("../images/charBorder.png") no-repeat left top;
+    height: 112px;
+    width: 112px;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 #instruction-text{
@@ -145,7 +164,7 @@ button {
     margin-bottom: 50px;
 }
 
-#status{
+#battleText{
     background-color: black;
     font-size: 24px;
     margin-bottom: 20px;
