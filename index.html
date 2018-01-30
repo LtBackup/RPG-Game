@@ -12,43 +12,43 @@
 </head>
 
 <Body>
-    <div class="container" id="vertCenter">
+    <div class="container">
         <div class="row">
-            <div class="col-xs-12 text-center" id="instruction-text">
+            <div class="col-xs-12 text-center box" id="instruction-text">
                 Choose your Hero
             </div>
         </div>
-        <div class="row buffer">
+        <div class="row">
             <div class="col-xs-6 col-sm-3 text-center buffer">
                 <div id="megaCover">
-                    <button class="character-select" id="megaMan" value="0"></button>
+                    <button class="character-select box" id="megaMan" value="0"></button>
+                    <div class="charName">Mega Man</div>
                 </div>
-                <div class="charName">Mega Man</div>
             </div>
             <div class="col-xs-6 col-sm-3 text-center buffer">
                 <div id="protoCover">
-                    <button class="character-select" id="protoMan" value="1"></button>
-                    <div class="charName">Proto Man</div>
+                    <button class="character-select box" id="gutsMan" value="1"></button>
+                    <div class="charName">Guts Man</div>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-3 text-center buffer">
                 <div id="gutsCover">
-                    <button class="character-select" id="gutsMan" value="2"></button>
+                    <button class="character-select box" id="protoMan" value="2"></button>
+                    <div class="charName">Proto Man</div>
                 </div>
-                <div class="charName">Guts Man</div>
             </div>
             <div class="col-xs-6 col-sm-3 text-center buffer">
                 <div id="quickCover">
-                    <button class="character-select" id="quickMan" value="3"></button>
+                    <button class="character-select box" id="quickMan" value="3"></button>
                     <div class="charName">Quick Man</div>
                 </div>
             </div>
         </div>
-        <div class="row buffer">
-                <div class="col-xs-12 text-center" id="bio">
-                    character bios
-                </div>
+        <div class="row">
+            <div class="col-xs-12 text-center box" id="bio">
+                Hover over a character
             </div>
+        </div>
         <div class="row buffer">
             <div class="col-xs-6 col-sm-3 col-sm-offset-3 text-center">
                 <div id="heroArena">
@@ -68,13 +68,20 @@
         <div class="row buffer">
             <div class="col-xs-12 text-center">
                 <button class="invisible" id="attackButton">Attack</button>
+
             </div>
         </div>
         <div class="row buffer">
             <div class="col-xs-12 text-center" id="battleText1">
-                Awaiting battle
+                Waiting for Battle
             </div>
             <div class="col-xs-12 text-center" id="battleText2">
+                <br/>
+            </div>
+        </div>
+        <div class="row buffer">
+            <div class="col-xs-12 text-center" id="resetArea">
+                <button id="resetButton">Reset</button>
             </div>
         </div>
     </div>

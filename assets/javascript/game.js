@@ -1,7 +1,8 @@
 function Character() {
     this.hp = 28;
     this.name = "";
-    this.atk;
+    this.atk = 4;
+    this.counter = 2;
     this.weapons = [];
     this.weaponIndex;
     this.atkName = "";
@@ -14,22 +15,20 @@ var hero = new Character();
 var opponent = new Character();
 
 var megaMan = new Character();
-// megaMan.hp = 100;
 megaMan.name = "Mega Man";
-megaMan.atk = 30;
-megaMan.counter = 40;
+megaMan.atk = 4;
+megaMan.counter = 2;
 megaMan.weapons = [true, false, false, false];
 megaMan.weaponIndex = 0;
 megaMan.atkName = "Mega Buster";
 megaMan.weaknessIndex = 1;
 megaMan.pic = "assets/images/megaMan.png"
-megaMan.description = "Mega Man is Dr. Light's lab assistant, redesigned to combat the evil plans of Dr. Wily.\n\nHis attack is the Mega Buster: an arm cannon that can cover an area with a burst of projectiles";
+megaMan.description = "Mega Man is Dr. Light's lab assistant redesigned to combat the evil plans of Dr. Wily.\n\nHis attack is the Mega Buster: an arm cannon that can cover an area with a burst of projectiles";
 
 var protoMan = new Character();
-// protoMan.hp = 110;
 protoMan.name = "Proto Man";
-protoMan.atk = 25;
-protoMan.counter = 40;
+protoMan.atk = 4;
+protoMan.counter = 2;
 protoMan.weapons = [false, true, false, false];
 protoMan.weaponIndex = 1;
 protoMan.atkName = "Proto Shield Attack";
@@ -38,54 +37,53 @@ protoMan.pic = "assets/images/protoMan.png"
 protoMan.description = "Proto Man is Dr. Light's first creation, and the predecessor to Mega Man.\n\nProto Man carries the Proto Shield. He can block weaker projectiles and shoot from behind cover.";
 
 var gutsMan = new Character();
-// gutsMan.hp = 120;
 gutsMan.name = "Guts Man";
-gutsMan.atk = 20;
-gutsMan.counter = 40;
+gutsMan.atk = 4;
+gutsMan.counter = 2;
 gutsMan.weapons = [false, false, true, false];
 gutsMan.weaponIndex = 2;
 gutsMan.atkName = "Guts Punch";
 gutsMan.weaknessIndex = 3;
 gutsMan.pic = "assets/images/gutsMan.png"
-gutsMan.description = "Guts Man is a large construction robot reprogrammed by Dr. Wily to use his strength for evil deeds.\n\nGuts Man uses a guts punch attack that penetrates most defenses.";
+gutsMan.description = "Guts Man is a large construction robot reprogrammed by Dr. Wily to use his strength for evil deeds.\n\nGuts Man uses the Guts Punch attack that penetrates most defenses.";
 
 var quickMan = new Character();
-// quickMan.hp = 90;
 quickMan.name = "Quick Man";
-quickMan.atk = 35;
-quickMan.counter = 40;
+quickMan.atk = 4;
+quickMan.counter = 2;
 quickMan.weapons = [false, false, false, true];
 quickMan.weaponIndex = 3;
 quickMan.atkName = "Quick Boomerang";
 quickMan.weaknessIndex = 0;
 quickMan.pic = "assets/images/quickMan.png"
-quickMan.description = "Quick Man is a battle robot designed and built by Dr. Wily.\n\nQuick Man throws quick boomerangs, catching slower targets by surprise.";
+quickMan.description = "Quick Man is a fast-moving battle robot designed and built by Dr. Wily.\n\nQuick Man throws Quick Boomerangs, catching slower targets by surprise.";
 
-var characters = [megaMan, protoMan, gutsMan, quickMan];
+var characters = [megaMan, gutsMan, protoMan, quickMan];
 var weaponReference = ["Mega Buster", "Proto Shield Attack", "Guts Punch", "Quick Boomerang"];
+var victories = 0;
 var selectedHeroButton;
 var selectedOpponentButton;
 var instruction = $("#instruction-text");
-var battleText = $("#battleText");
+var battleText1 = $("#battleText1");
+var battleText2 = $("#battleText2");
 var megaCover = $("#megaCover");
 var protoCover = $("#protoCover");
 var gutsCover = $("#gutsCover");
 var quickCover = $("#quickCover");
 var attackButton = $("#attackButton");
 var characterSelect = $(".character-select");
+var heroArena = $("#heroArena");
+var heroBattler = $("#heroBattler");
+var opponentBattler = $("#opponentBattler");
+var opponentArena = $("#opponentArena");
 var bio = $("#bio");
-
-
-$(".character-select").on("click", setCharacter);
-$("#resetButton").on("click", reset);
 
 function setCharacter() {
     $(".character-select").off("click").on("click", setOpponent);
     selectedCharButton = $(this);
-    selectedCharButton.addClass("invisible");
+    selectedCharButton.parent().addClass("invisible");
     hero = jQuery.extend(true, {}, characters[selectedCharButton.val()]);
     $("#heroBattler").css("background-image", "url(" + hero.pic + ")");
-    console.log(hero.pic);
     instruction.text("Select an opponent");
 }
 
@@ -102,66 +100,85 @@ function setOpponent() {
 }
 
 function attack() {
-    console.log("Hero", hero.name);
-    console.log("Opponent", opponent.name);
-    console.log(opponent.weaknessIndex);
+    console.log(opponent.hp);
     if (hero.weapons[opponent.weaknessIndex]) {
         opponent.hp -= hero.atk * 2;
-        console.log("Hard Hit, opponent HP", opponent.hp);
-        battleText.text("You hit " + opponent.name + " hard with " + weaponReference[opponent.weaknessIndex] + " for " + hero.atk * 2 + " damage.");
+        battleText1.text("You hit " + opponent.name + " hard with " + weaponReference[opponent.weaknessIndex] + " for " + hero.atk * 2 + " damage.");
     }
     else {
         opponent.hp -= hero.atk;
-        console.log("Hit", opponent.hp)
-        battleText.text("You hit " + opponent.name + " with " + hero.atkName + " for " + hero.atk + " damage.");
+        battleText1.text("You hit " + opponent.name + " with " + hero.atkName + " for " + hero.atk + " damage.");
     }
     if (opponent.hp > 0) {
         counterAttack();
-        console.log("you got hit back. your HP:", hero.hp);
         if (hero.hp < 0) {
-            $("#heroArena").addClass("disabled");
+            heroArena.addClass("disabled");
             attackButton.addClass("invisible");
-            console.log("you have been defeated!");
-            //play death sound
+            instruction.text("Game Over");
+            battleText1.text("You have been defeated");
+            battleText2.text("Game Over");
+            //if(!mute)death.play();
         }
     }
     else {
-        attackButton.addClass("invisible");
-        selectedOpponentButton.addClass("invisible");
-        $("#opponentArena").addClass("disabled");
-        instruction.text("Victory! You got\n" + opponent.atkName + ".\nSelect another opponent.");
-        hero.weapons[opponent.weaponIndex] = true;
-        characterSelect.on("click", setOpponent);
-    }
+        victories++;
+        if (victories === 3) {
+            hero.weapons[opponent.weaponIndex] = true;
+            attackButton.addClass("invisible");
+            selectedOpponentButton.parent().addClass("invisible");
+            opponentArena.addClass("disabled");
+            instruction.text("Congratulations!");
+            battleText1.text("Get equipped with " + opponent.atkName + "!");
+            battleText2.text("You Win!");
+            attackButton.off("click");
+            //if(!mute)death.play();
 
+        }
+        else {
+            attackButton.addClass("invisible");
+            attackButton.off("click");
+            selectedOpponentButton.parent().addClass("invisible");
+            opponentArena.addClass("disabled");
+            instruction.text("Victory! Select another opponent.");
+            battleText1.text("Get equipped with " + opponent.atkName + "!");
+            battleText2.text("Select another opponent");
+            hero.weapons[opponent.weaponIndex] = true;
+            characterSelect.on("click", setOpponent);
+        }
+    }
 }
 
 function counterAttack() {
     if (opponent.weapons[hero.weaknessIndex]) {
         hero.hp -= opponent.counter * 2;
-        console.log("counterattack", opponent.counter);
-        battleText.text(opponent.name + " hits you hard with " + opponent.atkName + " for " + opponent.counter * 2 + " damage.");
-
+        battleText2.text(opponent.name + " hits you hard with " + opponent.atkName + " for " + opponent.counter * 2 + " damage.");
     }
     else {
         hero.hp -= opponent.counter;
-        console.log("counterattack", opponent.counter);
-        console.log(battleText);
-        battleText.text(opponent.name + " hits you with " + opponent.atkName + " for " + opponent.counter + " damage.");
+        battleText2.text(opponent.name + " hits you with " + opponent.atkName + " for " + opponent.counter + " damage.");
     }
-}
-
-function stopGame() {
-    //might not need this
 }
 
 function reset() {
     hero = new Character();
     opponent = new Character();
-    //reset arenas
-    //reset listeners
-    $("#battleText1").empty();
-    $("#battleText2").empty();
-    //reset instructions
-    //reset button disables
+    heroBattler.css("background-image", "url('')");
+    opponentBattler.css("background-image", "url('')");
+    battleText1.text("Waiting for Battle");
+    battleText2.empty();
+    instruction.text("Choose your Hero");
+    attackButton.addClass("invisible");
+    heroArena.removeClass("disabled");
+    opponentArena.removeClass("disabled");
+    characterSelect.removeClass("disabled invisible");
+    characterSelect.parent().removeClass("invisible");
+    characterSelect.on("click", setCharacter);
+    victories = 0;
 }
+
+characterSelect.hover(function () {
+    bio.text(characters[$(this).val()].description);
+});
+
+$(".character-select").on("click", setCharacter);
+$("#resetButton").on("click", reset);
