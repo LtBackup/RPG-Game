@@ -1,0 +1,215 @@
+/* thanks to spriters-resource.com for all images. */
+
+.box{
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+}
+
+html, body{
+    background-color: black;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 16px;
+    background-image: url("../images/menu_BG.png");
+    color: white;
+}
+
+button {
+    background-color: black;
+    min-height: 50px;
+}
+
+.character-select{
+    height: 100px;
+    width: 100px;
+}
+
+#bio{
+    background-color: #444444;
+    min-height: 90px;
+    text-align: left;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#heroArena{
+    height: 136px;
+    width: 136px;
+    background-color: black;
+    margin: 0 auto;
+}
+
+#opponentArena{
+    height: 136px;
+    width: 136px;
+    background-color: black;
+    margin: 0 auto;
+}
+
+#heroBattler{
+    /* background: url("../images/megaMan.png") no-repeat center center; */
+    height: 100px;
+    width: 100px;
+    margin: 11px 0 0 16px;
+    padding: 0;
+    background-size: 100%;
+    position: absolute;
+    top: 6px;
+    z-index: 1;
+}
+
+#opponentBattler{
+    /* background: url("../images/megaMan.png") no-repeat center center; */
+    height: 100px;
+    width: 100px;
+    margin: 11px 0 0 16px;
+    padding: 0;
+    background-size: 100%;
+    position: absolute;
+    top: 6px;
+    z-index: 1;
+}
+
+#megaMan{
+    background: url("../images/megaMan.png") no-repeat left top;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    display: auto;
+    position: relative;
+    z-index: 1;
+}
+
+#protoMan{
+    background: url("../images/protoMan.png") no-repeat left top;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    display: auto;
+    position: relative;
+    z-index: 1;
+}
+
+#gutsMan{
+    background: url("../images/gutsMan.png") no-repeat left top;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    display: auto;
+    position: relative;
+    z-index: 1;
+}
+
+#quickMan{
+    background: url("../images/quickMan.png") no-repeat left top;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    display: auto;
+    position: relative;
+    z-index: 1;
+
+}
+
+#attackButton{
+    background-color: #444444;
+    min-width: 10%;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+}
+
+.disabled {   
+    -webkit-filter: grayscale(1); /* Webkit */
+    filter: gray; /* IE6-9 */
+    filter: grayscale(1); /* W3C */
+}
+
+.flip{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.hidden {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+
+#mute {
+    background-color: #444444;
+    min-width: 10%;
+    text-align: center;
+    color: white;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+
+#vertCenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.buffer{
+    margin-bottom: 10px;
+}
+
+.charBorder{
+    background: url("../images/charBorder.png") no-repeat left top;
+    height: 136px;
+    width: 136px;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+#instruction-text{
+    font-size: 32px;
+    margin: 20px 0;
+    background-color: #444444;
+}
+
+#battleText1{
+    background-color: black;
+    font-size: 16px;
+    min-height: 50px;
+    overflow: auto;
+}
+
+#battleText2{
+    background-color: black;
+    font-size: 16px;
+    margin-bottom: 20px;
+    min-height: 50px;
+    overflow: auto;
+}
+
+/* #answer{
+    font-size: 32px;
+    letter-spacing: 32px;
+    margin-bottom: 10px;
+} */
+
+/* #guessedLetters{
+    letter-spacing: 15px;
+    overflow-wrap: break-word;
+} */
+
+#audioControls{
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
