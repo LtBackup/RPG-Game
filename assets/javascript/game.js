@@ -77,6 +77,10 @@ var heroBattler = $("#heroBattler");
 var opponentBattler = $("#opponentBattler");
 var opponentArena = $("#opponentArena");
 var bio = $("#bio");
+var heroHP = $("#heroHP");
+var opponentHP = $("#opponentHP");
+var newPellet = $("<img>");
+newPellet.attr('src', "assets/images/healthpelletOrig.png");
 
 function setCharacter() {
     $(".character-select").off("click").on("click", setOpponent);
@@ -85,6 +89,7 @@ function setCharacter() {
     hero = jQuery.extend(true, {}, characters[selectedCharButton.val()]);
     $("#heroBattler").css("background-image", "url(" + hero.pic + ")");
     instruction.text("Select an opponent");
+    renderHeroHP();
 }
 
 function setOpponent() {
@@ -97,6 +102,7 @@ function setOpponent() {
     instruction.text("Attack when ready!");
     attackButton.removeClass("invisible");
     $("#attackButton").on("click", attack);
+    renderOpponentHP();
 }
 
 function attack() {
@@ -109,14 +115,16 @@ function attack() {
         opponent.hp -= hero.atk;
         battleText1.text("You hit " + opponent.name + " with " + hero.atkName + " for " + hero.atk + " damage.");
     }
+    
     if (opponent.hp > 0) {
         counterAttack();
-        if (hero.hp < 0) {
+        if (hero.hp <= 0) {
             heroArena.addClass("disabled");
             attackButton.addClass("invisible");
             instruction.text("Game Over");
             battleText1.text("You have been defeated");
             battleText2.text("Game Over");
+            attackButton.off("click");
             //if(!mute)death.play();
         }
     }
@@ -132,7 +140,6 @@ function attack() {
             battleText2.text("You Win!");
             attackButton.off("click");
             //if(!mute)death.play();
-
         }
         else {
             attackButton.addClass("invisible");
@@ -146,6 +153,7 @@ function attack() {
             characterSelect.on("click", setOpponent);
         }
     }
+    renderHP();
 }
 
 function counterAttack() {
@@ -159,11 +167,41 @@ function counterAttack() {
     }
 }
 
+function renderHP(){
+    renderHeroHP();
+    renderOpponentHP();
+}
+
+function renderHeroHP() {
+    heroHP.empty();
+    heroHP.removeClass("invisible");
+    for (var i = 0; i < hero.hp; i++) {
+        var newPellet = $("<img>");
+        newPellet.attr('src', "assets/images/healthpellet.png");
+        newPellet.addClass("hpPellet");
+        heroHP.delay(500).prepend(newPellet);
+    }
+}
+
+function renderOpponentHP() {
+    opponentHP.empty();
+    opponentHP.removeClass("invisible");
+    for (var i = 0; i < opponent.hp; i++) {
+        var newPellet = $("<img>");
+        newPellet.attr('src', "assets/images/healthpellet.png");
+        newPellet.addClass("hpPellet");
+        opponentHP.delay(50).prepend(newPellet);
+    }
+}
+
 function reset() {
+    attackButton.off("click");
     hero = new Character();
     opponent = new Character();
     heroBattler.css("background-image", "url('')");
     opponentBattler.css("background-image", "url('')");
+    heroHP.addClass("invisible");
+    opponentHP.addClass("invisible");
     battleText1.text("Waiting for Battle");
     battleText2.empty();
     instruction.text("Choose your Hero");
