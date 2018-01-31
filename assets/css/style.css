@@ -16,7 +16,7 @@ html, body{
 
 button {
     background-color: black;
-    min-height: 50px;
+    min-height: 100px;
 }
 
 .character-select{
@@ -48,7 +48,6 @@ button {
 }
 
 #heroBattler{
-    /* background: url("../images/megaMan.png") no-repeat center center; */
     height: 100px;
     width: 100px;
     margin: 11px 0 0 16px;
@@ -60,7 +59,6 @@ button {
 }
 
 #opponentBattler{
-    /* background: url("../images/megaMan.png") no-repeat center center; */
     height: 100px;
     width: 100px;
     margin: 11px 0 0 16px;
@@ -144,22 +142,10 @@ button {
 }
 
 
-#mute {
-    background-color: #444444;
+#muteButton {
     min-width: 10%;
     text-align: center;
     color: white;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-}
-
-
-#vertCenter{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .buffer{
@@ -220,10 +206,6 @@ button {
     flex-wrap: wrap-reverse; 
 }
 
-.test{
-    max-width: 100%;
-}
-
 #instruction-text{
     font-size: 32px;
     margin: 20px 0;
@@ -245,10 +227,4 @@ button {
     min-height: 50px;
     overflow: auto;
     padding-top: 5px;
-}
-
-#audioControls{
-    position: fixed;
-    top: 5px;
-    left: 5px;
 }

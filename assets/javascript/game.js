@@ -61,6 +61,7 @@ quickMan.description = "Quick Man is a fast-moving battle robot designed and bui
 var characters = [megaMan, gutsMan, protoMan, quickMan];
 var weaponReference = ["Mega Buster", "Proto Shield Attack", "Guts Punch", "Quick Boomerang"];
 var victories = 0;
+var mute = true;
 var selectedHeroButton;
 var selectedOpponentButton;
 var instruction = $("#instruction-text");
@@ -79,34 +80,54 @@ var opponentArena = $("#opponentArena");
 var bio = $("#bio");
 var heroHP = $("#heroHP");
 var opponentHP = $("#opponentHP");
-var newPellet = $("<img>");
-newPellet.attr('src', "assets/images/healthpelletOrig.png");
+var muteButton = $("#muteButton");
+
+var audioDamage = document.createElement('audio');
+audioDamage.setAttribute('src', "assets/audio/damage.wav");
+var audioVictory = document.createElement("audio");
+audioVictory.setAttribute('src', "assets/audio/victory.ogg");
+var audioMega = document.createElement("audio");
+audioMega.setAttribute('src', "assets/audio/mega.mp3");
+var audioProto = document.createElement("audio");
+audioProto.setAttribute('src', "assets/audio/proto.mp3");
+var audioGuts = document.createElement("audio");
+audioGuts.setAttribute('src', "assets/audio/guts.mp3");
+var audioQuick = document.createElement("audio");
+audioQuick.setAttribute('src', "assets/audio/quick.mp3");
+var audioWin = document.createElement("audio");
+audioWin.setAttribute('src', "assets/audio/win.mp3");
+var audioGameOver = document.createElement("audio");
+audioGameOver.setAttribute('src', "assets/audio/gameOver.ogg");
+var audioSelect = document.createElement("audio");
+audioSelect.setAttribute('src', "assets/audio/select.mp3");
+var audioDeath = document.createElement("audio");
+audioDeath.setAttribute('src', "assets/audio/death.wav");
+
 
 function setCharacter() {
-    $(".character-select").off("click").on("click", setOpponent);
+    characterSelect.off("click").on("click", setOpponent);
     selectedCharButton = $(this);
     selectedCharButton.parent().addClass("invisible");
     hero = jQuery.extend(true, {}, characters[selectedCharButton.val()]);
-    $("#heroBattler").css("background-image", "url(" + hero.pic + ")");
+    heroBattler.css("background-image", "url(" + hero.pic + ")");
     instruction.text("Select an opponent");
     renderHeroHP();
 }
 
 function setOpponent() {
-    $("#opponentArena").removeClass("disabled");
-    $(".character-select").off("click");
+    opponentArena.removeClass("disabled");
+    characterSelect.off("click");
     selectedOpponentButton = $(this);
     selectedOpponentButton.addClass("disabled");
     opponent = jQuery.extend(true, {}, characters[$(this).val()]);
-    $("#opponentBattler").css("background-image", "url(" + opponent.pic + ")");
+    opponentBattler.css("background-image", "url(" + opponent.pic + ")");
     instruction.text("Attack when ready!");
     attackButton.removeClass("invisible");
-    $("#attackButton").on("click", attack);
+    attackButton.on("click", attack);
     renderOpponentHP();
 }
 
 function attack() {
-    console.log(opponent.hp);
     if (hero.weapons[opponent.weaknessIndex]) {
         opponent.hp -= hero.atk * 2;
         battleText1.text("You hit " + opponent.name + " hard with " + weaponReference[opponent.weaknessIndex] + " for " + hero.atk * 2 + " damage.");
@@ -115,7 +136,7 @@ function attack() {
         opponent.hp -= hero.atk;
         battleText1.text("You hit " + opponent.name + " with " + hero.atkName + " for " + hero.atk + " damage.");
     }
-    
+
     if (opponent.hp > 0) {
         counterAttack();
         if (hero.hp <= 0) {
@@ -125,10 +146,14 @@ function attack() {
             battleText1.text("You have been defeated");
             battleText2.text("Game Over");
             attackButton.off("click");
-            //if(!mute)death.play();
+            if (!mute) {
+                audioDeath.play();
+                audioGameOver.play();
+            }
         }
     }
     else {
+        if (!mute) audioDeath.play();
         victories++;
         if (victories === 3) {
             hero.weapons[opponent.weaponIndex] = true;
@@ -139,7 +164,7 @@ function attack() {
             battleText1.text("Get equipped with " + opponent.atkName + "!");
             battleText2.text("You Win!");
             attackButton.off("click");
-            //if(!mute)death.play();
+            if (!mute) audioWin.play();
         }
         else {
             attackButton.addClass("invisible");
@@ -151,6 +176,7 @@ function attack() {
             battleText2.text("Select another opponent");
             hero.weapons[opponent.weaponIndex] = true;
             characterSelect.on("click", setOpponent);
+            if (!mute) audioVictory.play();
         }
     }
     renderHP();
@@ -165,9 +191,10 @@ function counterAttack() {
         hero.hp -= opponent.counter;
         battleText2.text(opponent.name + " hits you with " + opponent.atkName + " for " + opponent.counter + " damage.");
     }
+    if (!mute) audioDamage.play();
 }
 
-function renderHP(){
+function renderHP() {
     renderHeroHP();
     renderOpponentHP();
 }
@@ -204,12 +231,13 @@ function reset() {
     opponentHP.addClass("invisible");
     battleText1.text("Waiting for Battle");
     battleText2.empty();
-    instruction.text("Choose your Hero");
+    instruction.text("Select your Hero");
     attackButton.addClass("invisible");
     heroArena.removeClass("disabled");
     opponentArena.removeClass("disabled");
     characterSelect.removeClass("disabled invisible");
     characterSelect.parent().removeClass("invisible");
+    characterSelect.off("click");
     characterSelect.on("click", setCharacter);
     victories = 0;
 }
@@ -218,5 +246,15 @@ characterSelect.hover(function () {
     bio.text(characters[$(this).val()].description);
 });
 
-$(".character-select").on("click", setCharacter);
+function toggleAudio() {
+    mute = !mute;
+    if (mute) {
+        muteButton.text("UNMUTE");
+    }
+    else {
+        muteButton.text("MUTE");
+    }
+}
+characterSelect.on("click", setCharacter);
 $("#resetButton").on("click", reset);
+muteButton.on("click", toggleAudio);
