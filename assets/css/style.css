@@ -16,7 +16,7 @@ html, body{
 
 button {
     background-color: black;
-    min-height: 50px;
+    min-height: 100px;
 }
 
 .character-select{
@@ -29,6 +29,7 @@ button {
     min-height: 90px;
     text-align: left;
     padding: 5px;
+    padding-left: 10px;
     margin-bottom: 10px;
 }
 
@@ -47,7 +48,6 @@ button {
 }
 
 #heroBattler{
-    /* background: url("../images/megaMan.png") no-repeat center center; */
     height: 100px;
     width: 100px;
     margin: 11px 0 0 16px;
@@ -59,7 +59,6 @@ button {
 }
 
 #opponentBattler{
-    /* background: url("../images/megaMan.png") no-repeat center center; */
     height: 100px;
     width: 100px;
     margin: 11px 0 0 16px;
@@ -143,22 +142,10 @@ button {
 }
 
 
-#mute {
-    background-color: #444444;
+#muteButton {
     min-width: 10%;
     text-align: center;
     color: white;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-}
-
-
-#vertCenter{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .buffer{
@@ -176,6 +163,49 @@ button {
     z-index: 2;
 }
 
+.hpBG{
+    background-color: black;
+    height: 130px;
+    width: 50px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse; 
+}
+
+.hpPellet{
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.alignerLeft{
+    display: flex;
+    flex-direction: row; 
+}
+
+.alignerRight{
+    display: flex;
+    flex-direction: row-reverse; 
+}
+
+#heroHP{
+    height:130px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse; 
+}
+
+#opponentHP{
+    height:130px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse; 
+}
+
 #instruction-text{
     font-size: 32px;
     margin: 20px 0;
@@ -187,6 +217,7 @@ button {
     font-size: 16px;
     min-height: 50px;
     overflow: auto;
+    padding-top: 5px;
 }
 
 #battleText2{
@@ -195,21 +226,5 @@ button {
     margin-bottom: 20px;
     min-height: 50px;
     overflow: auto;
-}
-
-/* #answer{
-    font-size: 32px;
-    letter-spacing: 32px;
-    margin-bottom: 10px;
-} */
-
-/* #guessedLetters{
-    letter-spacing: 15px;
-    overflow-wrap: break-word;
-} */
-
-#audioControls{
-    position: fixed;
-    top: 5px;
-    left: 5px;
+    padding-top: 5px;
 }
