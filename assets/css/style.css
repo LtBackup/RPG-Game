@@ -70,7 +70,7 @@ button {
 }
 
 #megaMan{
-    background: url("../images/megaMan.png") no-repeat left top;
+    background: url("../images/megaman.png") no-repeat left top;
     margin: 0;
     padding: 0;
     background-size: 100%;
@@ -80,7 +80,7 @@ button {
 }
 
 #protoMan{
-    background: url("../images/protoMan.png") no-repeat left top;
+    background: url("../images/protoman.png") no-repeat left top;
     margin: 0;
     padding: 0;
     background-size: 100%;
@@ -90,7 +90,7 @@ button {
 }
 
 #gutsMan{
-    background: url("../images/gutsMan.png") no-repeat left top;
+    background: url("../images/gutsman.png") no-repeat left top;
     margin: 0;
     padding: 0;
     background-size: 100%;
@@ -100,7 +100,7 @@ button {
 }
 
 #quickMan{
-    background: url("../images/quickMan.png") no-repeat left top;
+    background: url("../images/quickman.png") no-repeat left top;
     margin: 0;
     padding: 0;
     background-size: 100%;
