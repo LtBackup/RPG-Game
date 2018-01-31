@@ -22,7 +22,7 @@ megaMan.weapons = [true, false, false, false];
 megaMan.weaponIndex = 0;
 megaMan.atkName = "Mega Buster";
 megaMan.weaknessIndex = 1;
-megaMan.pic = "assets/images/megaMan.png"
+megaMan.pic = "assets/images/megaman.png"
 megaMan.description = "Mega Man is Dr. Light's lab assistant redesigned to combat the evil plans of Dr. Wily.\n\nHis attack is the Mega Buster: an arm cannon that can cover an area with a burst of projectiles";
 
 var protoMan = new Character();
@@ -33,7 +33,7 @@ protoMan.weapons = [false, true, false, false];
 protoMan.weaponIndex = 1;
 protoMan.atkName = "Proto Shield Attack";
 protoMan.weaknessIndex = 2;
-protoMan.pic = "assets/images/protoMan.png"
+protoMan.pic = "assets/images/protoman.png"
 protoMan.description = "Proto Man is Dr. Light's first creation, and the predecessor to Mega Man.\n\nProto Man carries the Proto Shield. He can block weaker projectiles and shoot from behind cover.";
 
 var gutsMan = new Character();
@@ -44,7 +44,7 @@ gutsMan.weapons = [false, false, true, false];
 gutsMan.weaponIndex = 2;
 gutsMan.atkName = "Guts Punch";
 gutsMan.weaknessIndex = 3;
-gutsMan.pic = "assets/images/gutsMan.png"
+gutsMan.pic = "assets/images/gutsman.png"
 gutsMan.description = "Guts Man is a large construction robot reprogrammed by Dr. Wily to use his strength for evil deeds.\n\nGuts Man uses the Guts Punch attack that penetrates most defenses.";
 
 var quickMan = new Character();
@@ -55,7 +55,7 @@ quickMan.weapons = [false, false, false, true];
 quickMan.weaponIndex = 3;
 quickMan.atkName = "Quick Boomerang";
 quickMan.weaknessIndex = 0;
-quickMan.pic = "assets/images/quickMan.png"
+quickMan.pic = "assets/images/quickman.png"
 quickMan.description = "Quick Man is a fast-moving battle robot designed and built by Dr. Wily.\n\nQuick Man throws Quick Boomerangs, catching slower targets by surprise.";
 
 var characters = [megaMan, gutsMan, protoMan, quickMan];
@@ -204,7 +204,7 @@ function renderHeroHP() {
     heroHP.removeClass("invisible");
     for (var i = 0; i < hero.hp; i++) {
         var newPellet = $("<img>");
-        newPellet.attr('src', "assets/images/healthpellet.png");
+        newPellet.attr('src', "assets/images/healthPellet.png");
         newPellet.addClass("hpPellet");
         heroHP.delay(500).prepend(newPellet);
     }
@@ -215,7 +215,7 @@ function renderOpponentHP() {
     opponentHP.removeClass("invisible");
     for (var i = 0; i < opponent.hp; i++) {
         var newPellet = $("<img>");
-        newPellet.attr('src', "assets/images/healthpellet.png");
+        newPellet.attr('src', "assets/images/healthPellet.png");
         newPellet.addClass("hpPellet");
         opponentHP.delay(50).prepend(newPellet);
     }
