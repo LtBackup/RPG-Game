@@ -5,6 +5,10 @@ Pick your favorite Robot Master and battle your way through 4 opponents. Your ro
 
 Fight for Everlasting Peace!
 
+## Author
+
+* Jim Pratt
+
 ## Technologies Used
 * Bootstrap - CSS library
 * jQuery - Library used for DOM manipulation
