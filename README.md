@@ -6,8 +6,8 @@ Pick your favorite Robot Master and battle your way through 4 opponents. Your ro
 Fight for Everlasting Peace!
 
 ## Technologies Used
-Bootstrap - CSS library
-jQuery - Library used for DOM manipulation
+* Bootstrap - CSS library
+* jQuery - Library used for DOM manipulation
 
 
 ## Acknowledgements
